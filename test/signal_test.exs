@@ -41,17 +41,39 @@ defmodule SignalTest do
     }
     assert Signal.check(:ema, data) == {:false}
   end
-  #Bollinger Bands
-  # test "Exponential Moving Average" do
-  #   data = %{
-  #     lower_band: 50.0,
-  #     middle_band: 100.0,
-  #     upper_band: 150.0,
-  #     previous_tick: 10.0,
-  #     current_tick: 250.0
-  #   }
-  #   assert Signal.check(:bollinger, data) ==
-  # end
+  # Bollinger Bands
+  test "Lower Bollinger Band" do
+    data = %{
+      ticker: "GOOG",
+      band: 50.0,
+      previous_tick: 10.0,
+      current_tick: 250.0
+    }
+    result = {:bollinger_lower, "GOOG", :up, 250.0, "timestamp"}
+    assert Signal.check(:bollinger_lower, data) == result
+  end
+
+  test "Middle Bollinger Band" do
+    data = %{
+      ticker: "GOOG",
+      band: 50.0,
+      previous_tick: 10.0,
+      current_tick: 250.0
+    }
+    result = {:bollinger_middle, "GOOG", :up, 250.0, "timestamp"}
+    assert Signal.check(:bollinger_middle, data) == result
+  end
+
+  test "Upper Bollinger Band" do
+    data = %{
+      ticker: "GOOG",
+      band: 50.0,
+      previous_tick: 10.0,
+      current_tick: 250.0
+    }
+    result = {:bollinger_upper, "GOOG", :up, 250.0, "timestamp"}
+    assert Signal.check(:bollinger_upper, data) == result
+  end
 
   #VWAP
 
