@@ -1,0 +1,2 @@
+defmodule Indicator do
+end
