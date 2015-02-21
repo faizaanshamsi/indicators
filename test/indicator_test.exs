@@ -1,5 +1,4 @@
 defmodule IndicatorTest do
-
   use ExUnit.Case, async: true
 
   test "Simple Moving Average is crossed from a low to high price movement" do
